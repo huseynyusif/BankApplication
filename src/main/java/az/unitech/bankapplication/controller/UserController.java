@@ -1,4 +1,4 @@
-package az.unitech.bankapplication.controller.create;
+package az.unitech.bankapplication.controller;
 
 import az.unitech.bankapplication.dto.request.user.UserCreateRequest;
 import az.unitech.bankapplication.exception.UserAlreadyExistsException;
