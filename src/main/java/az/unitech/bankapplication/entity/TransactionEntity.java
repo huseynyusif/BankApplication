@@ -12,23 +12,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "transactions",schema = "bank_application")
-public class Transaction {
+public class TransactionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String type;
+    private LocalDateTime timestamp;
 
     @Column(nullable = false)
     private double amount;
 
-    @Column(nullable = false)
-    private LocalDateTime date;
+    @ManyToOne
+    @JoinColumn(name = "sender_account_id", nullable = false)
+    private AccountEntity senderAccount;
 
     @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private AccountEntity accountEntity;
+    @JoinColumn(name = "receiver_account_id", nullable = false)
+    private AccountEntity receiverAccount;
 
 }

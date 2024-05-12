@@ -6,22 +6,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "currency_rates",schema = "bank_application")
-public class CurrencyRate {
+public class CurrencyRateEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true)
-    private String currencyPair;
-
-    @Column(nullable = false)
+    private String currencyPair; // Example: AZN,USD
     private double rate;
-
+    private LocalDateTime lastUpdated;
 
 }

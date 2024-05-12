@@ -1,8 +1,9 @@
-package az.unitech.bankapplication.controller;
+package az.unitech.bankapplication.controller.create;
 
 import az.unitech.bankapplication.dto.request.user.UserCreateRequest;
 import az.unitech.bankapplication.exception.UserAlreadyExistsException;
 import az.unitech.bankapplication.service.create.UserCreateService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1/users")
-public class UserController {
+public class UserCreateController {
 
     private final UserCreateService userService;
 
 
     @PostMapping("/register")
-    public ResponseEntity<?> createUser(@RequestBody UserCreateRequest userCreateRequestDTO) {
+    public ResponseEntity<?> createUser(@RequestBody @Valid UserCreateRequest userCreateRequestDTO) {
         ResponseEntity<?> responseEntity;
         try {
 

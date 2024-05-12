@@ -3,12 +3,16 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=bank_application
-    username: postgres
-    password: alma
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  liquibase:
+      change-log: db.changelog/db.changelog-master.yaml
+      enabled: false
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-  liquibase:
-    enabled: false
-
+fxratesapi:
+  access:
+    link: ${LINK}
+    token: ${TOKEN}
