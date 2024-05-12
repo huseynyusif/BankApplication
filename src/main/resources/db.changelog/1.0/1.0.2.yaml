@@ -1,0 +1,7 @@
+changeSet:
+  id: removeColumn-active-from-accounts-table
+  author: Huseyn
+  changes:
+    - dropColumn:
+        tableName: accounts
+        columnName: active

@@ -1,10 +1,14 @@
 package az.unitech.bankapplication.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,12 +30,22 @@ public class AccountEntity {
     @Column(nullable = false)
     private String accountType;
 
-    @Column(nullable = false)
-    private boolean active;
+    @Column(name = "creation_date")
+    @CreationTimestamp
+    private LocalDate creationDate;
+
+    @Column(name = "expiration_date")
+    private LocalDate expirationDate;
+
+    @Column(name = "card_status")
+    private String cardStatus;
+
+    private String currency;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JsonBackReference
+    private UserEntity user;
 
 }
 

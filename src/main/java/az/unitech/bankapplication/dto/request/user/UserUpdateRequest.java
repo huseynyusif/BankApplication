@@ -14,4 +14,5 @@ public class UserUpdateRequest {
     private String lastName;
     private String email;
     private String pin;
+    private String userName;
 }
